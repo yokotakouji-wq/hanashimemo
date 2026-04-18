@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-syne: var(--font-syne);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+  background: #070c1a;
+  color: #fff;
+  font-family: var(--font-syne), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+/* Blue glow pulse — idle REC button */
+@keyframes glow-blue {
+  0%, 100% {
+    box-shadow:
+      0 0 18px 4px rgba(59, 130, 246, 0.45),
+      0 0 48px 8px rgba(59, 130, 246, 0.18);
+  }
+  50% {
+    box-shadow:
+      0 0 36px 8px rgba(59, 130, 246, 0.75),
+      0 0 80px 16px rgba(59, 130, 246, 0.30);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Red glow pulse — recording STOP button */
+@keyframes glow-red {
+  0%, 100% {
+    box-shadow:
+      0 0 18px 4px rgba(239, 68, 68, 0.45),
+      0 0 48px 8px rgba(239, 68, 68, 0.18);
+  }
+  50% {
+    box-shadow:
+      0 0 36px 8px rgba(239, 68, 68, 0.75),
+      0 0 80px 16px rgba(239, 68, 68, 0.30);
+  }
 }
+
+/* Recording dot blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* Spinner */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-glow-blue  { animation: glow-blue  2.4s ease-in-out infinite; }
+.animate-glow-red   { animation: glow-red   1.2s ease-in-out infinite; }
+.animate-blink      { animation: blink      1.2s ease-in-out infinite; }
+.animate-spin-slow  { animation: spin       1s linear infinite; }
