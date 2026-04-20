@@ -62,3 +62,25 @@ body {
 .animate-glow-red   { animation: glow-red   1.2s ease-in-out infinite; }
 .animate-blink      { animation: blink      1.2s ease-in-out infinite; }
 .animate-spin-slow  { animation: spin       1s linear infinite; }
+
+/* Sound wave bars */
+@keyframes wave-bar {
+  0%, 100% { transform: scaleY(0.25); }
+  50%       { transform: scaleY(1);    }
+}
+
+.wave-bar {
+  width: 4px;
+  border-radius: 9999px;
+  background: rgba(96, 165, 250, 0.75);
+  transform-origin: bottom;
+  animation: wave-bar 0.85s ease-in-out infinite;
+}
+.wave-bar:nth-child(1) { animation-delay: 0s;     height: 28px; }
+.wave-bar:nth-child(2) { animation-delay: 0.12s;  height: 40px; }
+.wave-bar:nth-child(3) { animation-delay: 0.24s;  height: 52px; }
+.wave-bar:nth-child(4) { animation-delay: 0.36s;  height: 40px; }
+.wave-bar:nth-child(5) { animation-delay: 0.48s;  height: 28px; }
+.wave-bar:nth-child(6) { animation-delay: 0.08s;  height: 36px; }
+.wave-bar:nth-child(7) { animation-delay: 0.20s;  height: 48px; }
+.wave-bar:nth-child(8) { animation-delay: 0.32s;  height: 36px; }

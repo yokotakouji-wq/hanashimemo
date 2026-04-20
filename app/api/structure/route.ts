@@ -34,7 +34,6 @@ export async function POST(request: NextRequest) {
   "key_points": ["課題・問題点・懸念事項のリスト（なければ空配列）"],
   "decisions": ["決まったこと・合意事項のリスト（なければ空配列）"],
   "actions": ["誰が何をするかのアクションアイテムリスト（なければ空配列）"],
-  "emotional_notes": ["会話中の感情・雰囲気・空気感のメモ（例: 相手は不安そうだった）（なければ空配列）"],
   "next_steps": ["今後の予定・次のステップ（なければ空配列）"]
 }`,
       messages: [
@@ -51,7 +50,6 @@ export async function POST(request: NextRequest) {
     }
 
     const rawText = content.text.trim();
-    // Strip markdown code fences if present
     const jsonMatch = rawText.match(/```(?:json)?\s*([\s\S]*?)```/);
     const jsonText = jsonMatch ? jsonMatch[1].trim() : rawText;
 
